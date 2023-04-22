@@ -1,20 +1,18 @@
-name: Get issue conent
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: issues
+name: Add comment
+on:
+  issues:
+    types:
+      - labeled
 jobs:
-  Explore-GitHub-Actions:
+  add-comment:
+    if: github.event.label.name == 'help wanted'
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
     steps:
-      - run: echo "Issue title ${{ github.event.issue.title }}."
-      - run: echo "Issue body ${{ github.event.issue.body }}."
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-      - name: Check out repository code
-        uses: actions/checkout@v3
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - name: Add comment
+        uses: peter-evans/create-or-update-comment@5f728c3dae25f329afbe34ee4d08eef25569d79f
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            This issue is available for anyone to work on. **Make sure to reference this issue in your pull request.** :sparkles: Thank you for your contribution! :sparkles:
