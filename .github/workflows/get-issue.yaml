@@ -1,0 +1,6 @@
+on:
+  issue_comment:
+    types: created
+
+- run: echo ${{ github.event.comment.body }}
+- run: echo ${{ github.event.changes.body.from }}
