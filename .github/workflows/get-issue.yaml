@@ -1,6 +1,6 @@
-name: GitHub Actions Demo
+name: Get issue conent
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+on: issues
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
@@ -16,3 +16,5 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+      - run: echo ${{ github.event.comment.body }}
+      - run: echo ${{ github.event.changes.body.from }}
