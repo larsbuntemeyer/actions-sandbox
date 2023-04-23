@@ -16,7 +16,7 @@ def update_table(entry):
         current[table_name][source_id] = entry
     pprint.pprint(current)
     with open(table, 'w') as f:
-       json.dump(current, f)
+       json.dump(current, f, indent=4)
 
 def get_entries(content):
     return json.loads(content) 
