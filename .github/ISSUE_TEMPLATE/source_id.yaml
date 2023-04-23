@@ -8,7 +8,7 @@ body:
       value: |
         Thanks for taking the time!
   - type: input
-    id: source-id
+    id: source_id
     attributes:
       label: source-id
       description: A short identifier of the model.
