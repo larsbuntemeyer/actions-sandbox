@@ -22,4 +22,4 @@ def get_entries(content):
 if __name__ == "__main__":
     content = sys.argv[1]
     entries = get_entries(content)
-    update_table(entry)
+    update_table(entries)
