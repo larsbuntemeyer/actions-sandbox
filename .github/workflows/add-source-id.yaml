@@ -16,6 +16,6 @@ jobs:
       - uses: stefanbuck/github-issue-praser@v3
         id: issue-parser
         with:
-          template-path: .github/ISSUE_TEMPLATE/add-source_id.yml
+          template-path: .github/ISSUE_TEMPLATE/source_id.yaml
 
       - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > source_id.json
