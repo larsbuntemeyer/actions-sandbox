@@ -19,7 +19,7 @@ def update_table(entry):
        json.dump(current, f)
 
 def get_entries(content):
-    entries = json.loads(content) 
+    return json.loads(content) 
 
 
 if __name__ == "__main__":
