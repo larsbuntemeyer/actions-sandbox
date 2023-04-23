@@ -33,4 +33,4 @@ jobs:
         python-version: 3.9
   
     - name: Execute Test Script
-      run: python parse-issue-body.py ${{ github.event.issue.body }} 
+      run: python parse-issue-body.py "${{ github.event.issue.body }}"
