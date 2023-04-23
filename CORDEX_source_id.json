@@ -10,38 +10,38 @@
             "institution_id": [
                 "GERICS"
             ],
-            "label":"REMO2020",
-            "license":"Creative Commons Attribution 4.0 International License (CC BY 4.0; https://creativecommons.org/licenses/by/4.0/).",
-            "model_component":{
-                "aerosol":{
-                    "description":"MACv2"
+            "label": "REMO2020",
+            "license": "Creative Commons Attribution 4.0 International License (CC BY 4.0; https://creativecommons.org/licenses/by/4.0/).",
+            "model_component": {
+                "aerosol": {
+                    "description": "MACv2"
                 },
-                "atmos":{
-                    "description":"dynamic"
+                "atmos": {
+                    "description": "dynamic"
                 },
-                "atmosChem":{
-                    "description":"none"
+                "atmosChem": {
+                    "description": "none"
                 },
-                "land":{
-                    "description":"none"
+                "land": {
+                    "description": "none"
                 },
-                "landIce":{
-                    "description":"none"
+                "landIce": {
+                    "description": "none"
                 },
-                "ocean":{
-                    "description":"prescribed"
+                "ocean": {
+                    "description": "prescribed"
                 },
-                "lake":{
-                    "description":"FLake"
+                "lake": {
+                    "description": "FLake"
                 },
-                "ocnBgchem":{
-                    "description":"none"
+                "ocnBgchem": {
+                    "description": "none"
                 },
-                "seaIce":{
-                    "description":"none"
+                "seaIce": {
+                    "description": "none"
                 }
             },
-            "release_year":"2022",
+            "release_year": "2022",
             "source_id": "REMO2020"
         },
         "WRF442Q": {
@@ -56,39 +56,43 @@
                 "BCCR",
                 "UCAN"
             ],
-            "label":"WRF-v4.4.2-Q",
-            "license":"Creative Commons Attribution 4.0 International License (CC BY 4.0; https://creativecommons.org/licenses/by/4.0/).",
-            "model_component":{
-                "aerosol":{
-                    "description":"prescribed"
+            "label": "WRF-v4.4.2-Q",
+            "license": "Creative Commons Attribution 4.0 International License (CC BY 4.0; https://creativecommons.org/licenses/by/4.0/).",
+            "model_component": {
+                "aerosol": {
+                    "description": "prescribed"
                 },
-                "atmos":{
-                    "description":"dynamic"
+                "atmos": {
+                    "description": "dynamic"
                 },
-                "atmosChem":{
-                    "description":"none"
+                "atmosChem": {
+                    "description": "none"
                 },
-                "land":{
-                    "description":"NOAH-MP"
+                "land": {
+                    "description": "NOAH-MP"
                 },
-                "landIce":{
-                    "description":"none"
+                "landIce": {
+                    "description": "none"
                 },
-                "ocean":{
-                    "description":"prescribed"
+                "ocean": {
+                    "description": "prescribed"
                 },
-                "lake":{
-                    "description":"none"
+                "lake": {
+                    "description": "none"
                 },
-                "ocnBgchem":{
-                    "description":"none"
+                "ocnBgchem": {
+                    "description": "none"
                 },
-                "seaIce":{
-                    "description":"none"
+                "seaIce": {
+                    "description": "none"
                 }
             },
-            "release_year":"2022",
+            "release_year": "2022",
             "source_id": "WRF442Q"
+        },
+        "REMO2015": {
+            "source_id": "REMO2015",
+            "license": "CC0"
         }
     }
 }
