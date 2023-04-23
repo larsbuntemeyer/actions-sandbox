@@ -20,3 +20,12 @@ jobs:
           template-path: .github/ISSUE_TEMPLATE/source_id.yaml
 
       - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > source_id.json
+      
+      - name: Commit changes
+        shell: bash
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com" && \
+          git config --global user.name "github-actions[bot]" && \
+          git add source_id.json && \
+          git commit -m 'added source_id' && \
+          git push
