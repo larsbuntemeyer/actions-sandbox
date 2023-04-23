@@ -5,7 +5,7 @@ on:
 concurrency: 'main'
 jobs:
   process_source_id:
-    if: github.event.label.name == 'register source-id'
+    #if: github.event.label.name == 'register source-id'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -14,7 +14,7 @@ jobs:
         with:
           node-version: '16'
 
-      - uses: stefanbuck/github-issue-praser@v3
+      - uses: stefanbuck/github-issue-parser@v3
         id: issue-parser
         with:
           template-path: .github/ISSUE_TEMPLATE/source_id.yaml
