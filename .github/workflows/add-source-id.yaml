@@ -7,6 +7,9 @@ jobs:
   process_source_id:
     #if: github.event.label.name == 'register source-id'
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      issues: write
     steps:
       - uses: actions/checkout@v2
 
