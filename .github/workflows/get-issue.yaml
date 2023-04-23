@@ -35,4 +35,4 @@ jobs:
     - name: Execute Test Script
       run: |
         echo "Store: ${{ github.event.issue.body }}"
-        INPUT_STORE=${{ github.event.issue.body }} python3 test.py
+        python3 parse-issue-body.py ${{ github.event.issue.body }} 
