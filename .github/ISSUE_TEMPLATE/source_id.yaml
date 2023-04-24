@@ -10,16 +10,32 @@ body:
   - type: input
     id: source_id
     attributes:
-      label: source-id
+      label: source_id
       description: A short identifier of the model.
       placeholder: ex. `REMO2020` or `WRF442Q`
     validations:
-      required: false
+      required: true
+  - type: input
+    id: label
+    attributes:
+      label: label
+      description: Model label.
+      placeholder: ex. `REMO2020` or `WRF442Q`
+    validations:
+      required: true
+  - type: input
+    id: release_year
+    attributes:
+      label: release_year
+      description: Release year of the model.
+      placeholder: ex. `1999` or `2015`
+    validations:
+      required: true
   - type: dropdown
     id: license
     attributes:
       label: What license do you choose?
-      multiple: false
+      multiple: true
       options:
         - CC0
         - CC BY 4.0
