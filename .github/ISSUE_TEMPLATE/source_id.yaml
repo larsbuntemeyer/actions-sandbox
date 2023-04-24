@@ -35,7 +35,7 @@ body:
     id: license
     attributes:
       label: What license do you choose?
-      multiple: true
+      multiple: false
       options:
         - CC0
         - CC BY 4.0
