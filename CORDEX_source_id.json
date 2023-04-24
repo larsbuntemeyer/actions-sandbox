@@ -93,6 +93,12 @@
         "REMO2015": {
             "source_id": "REMO2015",
             "license": "CC0"
+        },
+        "RCM2020": {
+            "source_id": "RCM2020",
+            "label": "Regional Climate Model",
+            "release_year": "2020",
+            "license": "CC BY 4.0"
         }
     }
 }
