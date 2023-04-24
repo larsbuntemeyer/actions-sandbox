@@ -93,6 +93,12 @@
         "REMO2015": {
             "source_id": "REMO2015",
             "license": "CC0"
+        },
+        "REMO2008": {
+            "source_id": "REMO2008",
+            "label": "REMO2008",
+            "release_year": "2008",
+            "license": "CC BY 4.0"
         }
     }
 }
