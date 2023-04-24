@@ -43,4 +43,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
+          title: add ${{ steps.issue-parser.outputs.source_id }}
+          commit-message: add-${{ steps.issue-parser.outputs.source_id }}
           branch: add-${{ steps.issue-parser.outputs.source_id }}
+          delete-branch: true
