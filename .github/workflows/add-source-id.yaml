@@ -27,6 +27,7 @@ jobs:
         id: issue-parser
         with:
           template-path: .github/ISSUE_TEMPLATE/source_id.yaml
+          issue-body: ${{ github.event.client_payload.slash_command.issue.body }}
 
    #   - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > source_id.json
       
