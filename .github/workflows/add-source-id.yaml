@@ -1,7 +1,7 @@
 name: Process source-id
 on:
-  issues:
-    types: opened
+  repository_dispatch:
+    types: [register-command]
 concurrency: 'main'
 jobs:
   process_source_id:
