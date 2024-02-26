@@ -20,7 +20,6 @@ jobs:
                 "command": "register-workflow",
                 "permission": "none",
                 "issue_type": "issue",
-              # "repository": "peter-evans/slash-command-dispatch-processor",
                 "static_args": [
                   "repository=${{ github.repository }}",
                   "comment-id=${{ github.event.comment.id }}",
