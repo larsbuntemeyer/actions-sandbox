@@ -23,17 +23,11 @@ jobs:
         with:
           python-version: 3.9
 
-      - run: echo '${{ github.event.client_payload.github.payload.issue.number }}'
-
-      - run: echo '${{ github.event.client_payload.github.payload.issue.body }}'
-
       - uses: stefanbuck/github-issue-parser@v3
         id: issue-parser
         with:
           template-path: .github/ISSUE_TEMPLATE/source_id.yaml
-          issue-body: ${{ github.event.client_payload.issue_body }}
-
-   #   - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > source_id.json
+          issue-body: ${{ github.event.client_payload.github.payload.issue.body }}
       
       - run: python update-source_id.py '${{ steps.issue-parser.outputs.jsonString }}'
       
