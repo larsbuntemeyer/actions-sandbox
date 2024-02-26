@@ -23,7 +23,9 @@ jobs:
         with:
           python-version: 3.9
 
-      - run: echo '${{ github.event.client_payload.issue_body }}'
+      - run: echo '${{ github.event.client_payload.github.payload.issue.number }}'
+
+      - run: echo '${{ github.event.client_payload.github.payload.issue.body }}'
 
       - uses: stefanbuck/github-issue-parser@v3
         id: issue-parser
