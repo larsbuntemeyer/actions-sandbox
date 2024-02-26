@@ -1,0 +1,33 @@
+name: Slash Command Dispatch
+on:
+  issue_comment:
+    # Type "edited" added here for test purposes. Where possible, avoid 
+    # using to prevent processing unnecessary events.
+    types: [created]
+jobs:
+  slashCommandDispatch:
+    runs-on: ubuntu-latest
+    steps:
+      # Basic configuration
+      - name: Slash Command Dispatch
+        id: scd
+        uses: peter-evans/slash-command-dispatch@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          config: >
+            [
+              {
+                "command": "register-workflow",
+                "permission": "none",
+                "issue_type": "issue",
+              # "repository": "peter-evans/slash-command-dispatch-processor",
+                "static_args": [
+                  "repository=${{ github.repository }}",
+                  "comment-id=${{ github.event.comment.id }}",
+                  "issue-number=${{ github.event.issue.number }}",
+                  "issue-body=${{ github.event.issue.body }}",
+                  "actor=${{ github.actor }}"
+                ],
+                "dispatch_type": "workflow"
+              }
+            ]
