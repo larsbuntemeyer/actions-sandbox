@@ -29,7 +29,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo ${{ github.event.label.name }}
-          labels=gh api --jq '.labels.[].name' /repos/{owner}/{repo}/issues/${{ github.event.client_payload.github.payload.issue.number }}
+          labels=`gh api --jq '.labels.[].name' /repos/{owner}/{repo}/issues/${{ github.event.client_payload.github.payload.issue.number }}`
           echo "labels=$labels" >> $GITHUB_OUTPUT
 
       - name: Show info passed
