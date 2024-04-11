@@ -23,6 +23,12 @@ jobs:
         with:
           python-version: 3.9
 
+      - name: run python
+        run: |
+          import os
+          print(${{ github.event.client_payload.github.payload.issue.number }})
+        shell: python
+
       - name: Show info
         id: infos
         env:
