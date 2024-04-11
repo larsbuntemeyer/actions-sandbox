@@ -28,7 +28,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo ${{ github.event.label.name }}
-          gh api --jq '.labels.[].name' /repos/{owner}/{repo}/issues/50
           gh api --jq '.labels.[].name' /repos/{owner}/{repo}/issues/${{ github.event.client_payload.github.payload.issue.number }}
 
       - uses: stefanbuck/github-issue-parser@v3
