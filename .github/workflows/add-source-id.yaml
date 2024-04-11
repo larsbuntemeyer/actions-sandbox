@@ -24,23 +24,17 @@ jobs:
           python-version: 3.9
 
       - name: run python
-        run: |
-          import os
-          print(${{ github.event.client_payload.github.payload.issue.number }})
-        shell: python
-
-      - name: Show info
         id: infos
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo ${{ github.event.label.name }}
-          labels=`gh api --jq '.labels.[].name' /repos/{owner}/{repo}/issues/${{ github.event.client_payload.github.payload.issue.number }}`
-          echo "labels=$labels" >> $GITHUB_OUTPUT
+          table=`python labels.py /repos/{owner}/{repo}/issues/${{ github.event.client_payload.github.payload.issue.number }}`
+          echo $table
+          echo "table=$table" >> $GITHUB_OUTPUT
 
       - name: Show info passed
         run: |
-          echo ${{ steps.infos.outputs.labels }}
+          echo ${{ steps.infos.outputs.table }}
 
       - uses: stefanbuck/github-issue-parser@v3
         id: issue-parser
