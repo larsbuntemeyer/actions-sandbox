@@ -75,5 +75,5 @@ jobs:
           branch: add-${{ steps.update.outputs.id_added }}
           body: |
             Closes #${{ github.event.client_payload.github.payload.issue.number }}
-            Request to add ${{ steps.issue-parser.outputs.issueparser${{ steps.infos.outputs.table }} }}
+            Request to add ${{ steps.update.outputs.id_added }} 
           delete-branch: true
