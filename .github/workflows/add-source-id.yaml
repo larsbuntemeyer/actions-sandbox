@@ -41,8 +41,13 @@ jobs:
         with:
           template-path: .github/ISSUE_TEMPLATE/${{ steps.infos.outputs.table }}.yaml
           issue-body: ${{ github.event.client_payload.github.payload.issue.body }}
-      
-      - run: python update-${{ steps.infos.outputs.table }}.py '${{ steps.issue-parser.outputs.jsonString }}'
+
+      - name: update table
+        id: update
+        run: |
+          id_added=`python update-${{ steps.infos.outputs.table }}.py '${{ steps.issue-parser.outputs.jsonString }}'`
+          echo "id_added=$id_added" >> $GITHUB_OUTPUT
+
       
    #  - name: Commit changes
    #     shell: bash
@@ -52,12 +57,22 @@ jobs:
    #       git add source_id.json && \
    #       git commit -m 'added source_id' && \
    #       git push
+   #   - name: Create Pull Request
+   #     uses: peter-evans/create-pull-request@v5
+   #     with:
+   #       title: add ${{ steps.issue-parser.outputs.issueparser_${{ steps.infos.outputs.table }} }}
+   #       commit-message: add-${{ steps.issue-parser.outputs.issueparser${{ steps.infos.outputs.table }} }}
+   #       branch: add-${{ steps.issue-parser.outputs.issueparser${{ steps.infos.outputs.table }} }}
+   #       body: |
+   #         Closes #${{ github.event.client_payload.github.payload.issue.number }}
+   #         Request to add ${{ steps.issue-parser.outputs.issueparser${{ steps.infos.outputs.table }} }}
+   #       delete-branch: true
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
-          title: add ${{ steps.issue-parser.outputs.issueparser_${{ steps.infos.outputs.table }} }}
-          commit-message: add-${{ steps.issue-parser.outputs.issueparser${{ steps.infos.outputs.table }} }}
-          branch: add-${{ steps.issue-parser.outputs.issueparser${{ steps.infos.outputs.table }} }}
+          title: add ${{ steps.update.outputs.id_added }}
+          commit-message: add-${{ steps.update.outputs.id_added }}
+          branch: add-${{ steps.update.outputs.id_added }}
           body: |
             Closes #${{ github.event.client_payload.github.payload.issue.number }}
             Request to add ${{ steps.issue-parser.outputs.issueparser${{ steps.infos.outputs.table }} }}
