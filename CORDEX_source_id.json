@@ -99,6 +99,12 @@
             "label": "REMO2008",
             "release_year": "2008",
             "license": "CC BY 4.0"
+        },
+        "T1000-RCM-MODEL": {
+            "source_id": "T1000-RCM-MODEL",
+            "label": "T1000",
+            "release_year": "2045",
+            "license": "CC0"
         }
     }
 }
