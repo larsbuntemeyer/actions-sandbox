@@ -1,0 +1,29 @@
+name: updates with dependencies
+on:
+  workflow_dispatch:
+
+jobs:
+  first:
+    name: update
+    runs-on: ubuntu-latest
+    outputs:
+      change: ${{ steps.update.outputs.change }}
+    steps:
+    - name: update catalog via ssh
+      id: update
+      run: |
+        changed=1
+        #echo "::set-output name=changed::$changed"
+        echo "change=${changed}" >> $GITHUB_OUTPUT
+
+          
+  second:
+      name: dependend_job
+      needs: first
+      if: needs.first.outputs.change != 0
+      runs-on: ubuntu-latest
+      steps:
+      - name: do something
+        id: doit
+        run: |
+          echo "output: ${{ needs.first.outputs.change }}"
