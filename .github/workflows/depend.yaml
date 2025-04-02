@@ -12,7 +12,7 @@ jobs:
     - name: update catalog via ssh
       id: update
       run: |
-        changed=1
+        changed=0
         #echo "::set-output name=changed::$changed"
         echo "change=${changed}" >> $GITHUB_OUTPUT
 
